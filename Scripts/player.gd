@@ -96,6 +96,11 @@ func _process(delta):
 		get_node("arrowdown").visible = true
 	
 	
+	if selectWhatToDo == TODO.ATTACK:
+		get_node("todo").text = "A"
+	else:
+		get_node("todo").text = "D"
+	
 	shott += delta
 	if Input.is_action_just_pressed("ui_up"):
 		dir = DIR.UP
