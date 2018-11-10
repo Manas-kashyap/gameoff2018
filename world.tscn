@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/world.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/player.gd" type="Script" id=3]
+[ext_resource path="res://bullet.tscn" type="PackedScene" id=4]
+
+
+[node name="world" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+labelnp = NodePath("count")
+
+[node name="parallax" type="Node2D" parent="." index="0"]
+
+[node name="layerup" type="CanvasLayer" parent="." index="1"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="player" type="Sprite" parent="." index="2"]
+
+position = Vector2( 30, 297 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+bullet = ExtResource( 4 )
+
+[node name="tween" type="Tween" parent="player" index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="shield" type="Sprite" parent="player" index="1"]
+
+visible = false
+modulate = Color( 0, 0, 0, 0.33702 )
+scale = Vector2( 1.71875, 1.71875 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="enemyspawnpoint" type="Node2D" parent="." index="3"]
+
+position = Vector2( 1060, 298 )
+scale = Vector2( 1, 9.1875 )
+
+[node name="count" type="Label" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 825.0
+margin_top = 264.0
+margin_right = 890.0
+margin_bottom = 294.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "10"
+align = 1
+valign = 1
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+
