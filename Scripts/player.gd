@@ -88,6 +88,14 @@ func shoot(arbitary = 0):
 	get_parent().add_child(inst)
 
 func _process(delta):
+	if dir == DIR.UP:
+		get_node("arrowup").visible = true
+		get_node("arrowdown").visible = false
+	if dir == DIR.DOWN:
+		get_node("arrowup").visible = false
+		get_node("arrowdown").visible = true
+	
+	
 	shott += delta
 	if Input.is_action_just_pressed("ui_up"):
 		dir = DIR.UP
